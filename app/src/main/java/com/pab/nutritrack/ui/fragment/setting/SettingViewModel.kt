@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pab.nutritrack.api.remote.APIConfig
+import com.pab.nutritrack.data.base.BaseResponse
 import com.pab.nutritrack.data.user.UserItem
 import com.pab.nutritrack.data.user.UserResponse
 import com.pab.nutritrack.utils.UserPreferences
@@ -91,6 +92,37 @@ class SettingViewModel(private val userPreferences: UserPreferences) : ViewModel
                 }
 
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                    _isLoading.value = false
+                    _message.value = Event(t.message.toString())
+                    Log.e(TAG, "onFailure: ${t.message.toString()}")
+                }
+            })
+        }
+    }
+
+    fun changePassword(oldpass: String, newpass: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            val client = APIConfig.build().changePassword(getIdUser(), oldpass, newpass)
+            client.enqueue(object : Callback<BaseResponse> {
+                override fun onResponse(
+                    call: Call<BaseResponse>,
+                    response: Response<BaseResponse>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful && response.body() != null) {
+                        val userResponse = response.body()
+                        _message.value = Event(userResponse!!.msg)
+                    } else {
+                        _message.value = Event(response.message().toString())
+                        Log.e(
+                            TAG,
+                            "Failure: ${response.message()}, ${response.body()?.msg.toString()}"
+                        )
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
                     _isLoading.value = false
                     _message.value = Event(t.message.toString())
                     Log.e(TAG, "onFailure: ${t.message.toString()}")

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import com.pab.nutritrack.data.user.UserItem
 import com.pab.nutritrack.databinding.FragmentSettingBinding
 import com.pab.nutritrack.ui.landingpage.LandingPageActivity
+import com.pab.nutritrack.ui.profile.ChangePasswordActivity
 import com.pab.nutritrack.ui.profile.ProfileActivity
 import com.pab.nutritrack.ui.target.TargetActivity
 import com.pab.nutritrack.utils.viewmodel.ViewModelFactory
@@ -38,18 +39,26 @@ class SettingFragment : Fragment() {
         binding.apply {
             btnProfil.setOnClickListener {
                 startActivity(
-                    Intent(requireActivity(), ProfileActivity::class.java).putExtra("data", userItem)
+                    Intent(requireActivity(), ProfileActivity::class.java).putExtra(
+                        "data",
+                        userItem
+                    )
                 )
             }
 
             btnTarget.setOnClickListener {
                 startActivity(
-                    Intent(requireActivity(), TargetActivity::class.java).putExtra("goals", userItem.goals)
+                    Intent(requireActivity(), TargetActivity::class.java).putExtra(
+                        "goals",
+                        userItem.goals
+                    )
                 )
             }
 
             btnChangePassword.setOnClickListener {
-                Toast.makeText(requireActivity(), "Under Development", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(requireActivity(), ChangePasswordActivity::class.java)
+                )
             }
 
             btnLogout.setOnClickListener {
@@ -84,6 +93,7 @@ class SettingFragment : Fragment() {
         super.onResume()
         settingViewModel.getUsers()
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

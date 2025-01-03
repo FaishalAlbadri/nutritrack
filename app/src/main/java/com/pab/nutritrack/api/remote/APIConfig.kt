@@ -90,6 +90,14 @@ interface APIConfig {
         @Field("id_user") id_user: String
     ): Call<UserResponse>
 
+    @FormUrlEncoded
+    @POST("user/changePassword")
+    fun changePassword(
+        @Field("id_user") id_user: String,
+        @Field("oldpass") oldpass: String,
+        @Field("newpass") newpass: String
+    ): Call<BaseResponse>
+
 
     /**
      * -----------------------------------  Program API  -----------------------------------

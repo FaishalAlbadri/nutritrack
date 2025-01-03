@@ -41,7 +41,7 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include android:id="@+id/inc_content" layout="@layout/content_scrolling" />
+    <include android:id="@+id/inc_content" layout="@layout/content_detail_recipe" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

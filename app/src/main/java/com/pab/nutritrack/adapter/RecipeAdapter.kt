@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.pab.nutritrack.api.APIConfig
+import com.pab.nutritrack.api.remote.APIConfig
 import com.pab.nutritrack.data.recipe.RecipeItem
 import com.pab.nutritrack.databinding.ItemRecipeBinding
 import com.pab.nutritrack.ui.recipe.DetailRecipeActivity

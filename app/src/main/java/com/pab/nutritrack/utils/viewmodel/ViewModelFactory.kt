@@ -3,7 +3,9 @@ package com.pab.nutritrack.utils.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.pab.nutritrack.api.local.NutriTrackDatabase
 import com.pab.nutritrack.ui.form.result.QuestionResultViewModel
+import com.pab.nutritrack.ui.fragment.alarm.AlarmViewModel
 import com.pab.nutritrack.ui.fragment.home.HomeViewModel
 import com.pab.nutritrack.ui.fragment.recipe.RecipeViewModel
 import com.pab.nutritrack.ui.fragment.setting.SettingViewModel
@@ -12,13 +14,13 @@ import com.pab.nutritrack.ui.rasio.ProgressRasioViewModel
 import com.pab.nutritrack.ui.signuser.SignUserViewModel
 import com.pab.nutritrack.utils.UserPreferences
 
-class ViewModelFactory(private val userPreferences: UserPreferences) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val userPreferences: UserPreferences, private val nutriTrackDatabase: NutriTrackDatabase) : ViewModelProvider.NewInstanceFactory() {
     companion object {
         @Volatile
         private var instance: ViewModelFactory? = null
         fun getInstance(context: Context): ViewModelFactory {
             return instance ?: synchronized(this) {
-                instance ?: ViewModelFactory(Injection.provideRepository(context))
+                instance ?: ViewModelFactory(Injection.provideRepository(context), NutriTrackDatabase.getDatabase(context))
             }.also { instance = it }
         }
     }
@@ -46,6 +48,9 @@ class ViewModelFactory(private val userPreferences: UserPreferences) : ViewModel
             }
             modelClass.isAssignableFrom(SettingViewModel::class.java) -> {
                 SettingViewModel(userPreferences) as T
+            }
+            modelClass.isAssignableFrom(AlarmViewModel::class.java) -> {
+                AlarmViewModel(nutriTrackDatabase) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

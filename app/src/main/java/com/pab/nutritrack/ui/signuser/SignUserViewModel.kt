@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pab.nutritrack.api.APIConfig
+import com.pab.nutritrack.api.remote.APIConfig
 import com.pab.nutritrack.data.UserData
 import com.pab.nutritrack.data.user.UserItem
 import com.pab.nutritrack.data.user.UserResponse

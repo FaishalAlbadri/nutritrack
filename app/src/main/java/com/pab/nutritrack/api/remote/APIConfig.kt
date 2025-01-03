@@ -1,4 +1,4 @@
-package com.pab.nutritrack.api
+package com.pab.nutritrack.api.remote
 
 import com.pab.nutritrack.data.base.BaseResponse
 import com.pab.nutritrack.data.progress.kalori.ProgressKaloriResponse

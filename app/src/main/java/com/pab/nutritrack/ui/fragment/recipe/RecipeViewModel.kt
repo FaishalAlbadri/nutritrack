@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pab.nutritrack.api.APIConfig
+import com.pab.nutritrack.api.remote.APIConfig
 import com.pab.nutritrack.data.recipe.RecipeItem
 import com.pab.nutritrack.data.recipe.RecipeResponse
 import com.pab.nutritrack.utils.UserPreferences

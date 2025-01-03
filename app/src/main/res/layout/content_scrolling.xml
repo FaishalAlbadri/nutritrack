@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.recipe.DetailRecipeActivity"
+    tools:showIn="@layout/activity_detail_recipe">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bubur Ayam" />
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/cp_recipe"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cpb_background_progressbar_color="#E8DEF8"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_lemak"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/gd_recipe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_protein" />
+
+        <TextView
+            android:id="@+id/txt_kalori_val"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="24dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/cp_recipe"
+            app:layout_constraintEnd_toEndOf="@+id/cp_recipe"
+            app:layout_constraintStart_toStartOf="@+id/cp_recipe"
+            app:layout_constraintTop_toTopOf="@+id/cp_recipe"
+            tools:text="350\nkkal" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_recipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <TextView
+            android:id="@+id/txt_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="Protein"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/gd_recipe"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_protein_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/txt_protein"
+            app:layout_constraintTop_toTopOf="@+id/txt_protein"
+            tools:text="700 kkal" />
+
+        <ProgressBar
+            android:id="@+id/pb_protein"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:progress="25"
+            android:progressTint="@color/purple_200"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_protein"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_protein_val"
+            app:layout_constraintTop_toTopOf="@+id/txt_protein" />
+
+        <TextView
+            android:id="@+id/txt_karbo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="Karbo"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txt_protein"
+            app:layout_constraintStart_toStartOf="@+id/txt_protein"
+            app:layout_constraintTop_toBottomOf="@+id/txt_protein" />
+
+        <TextView
+            android:id="@+id/txt_karbo_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/txt_karbo"
+            app:layout_constraintTop_toTopOf="@+id/txt_karbo"
+            tools:text="200 kkal" />
+
+        <ProgressBar
+            android:id="@+id/pb_karbo"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:progress="25"
+            android:progressTint="@color/purple_200"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_karbo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_karbo_val"
+            app:layout_constraintTop_toTopOf="@+id/txt_karbo" />
+
+        <TextView
+            android:id="@+id/txt_lemak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="Lemak"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txt_karbo"
+            app:layout_constraintStart_toStartOf="@+id/txt_karbo"
+            app:layout_constraintTop_toBottomOf="@+id/txt_karbo" />
+
+        <TextView
+            android:id="@+id/txt_lemak_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/txt_lemak"
+            app:layout_constraintTop_toTopOf="@+id/txt_lemak"
+            tools:text="200 kkal" />
+
+        <ProgressBar
+            android:id="@+id/pb_leamk"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:progress="25"
+            android:progressTint="@color/purple_200"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_lemak"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_lemak_val"
+            app:layout_constraintTop_toTopOf="@+id/txt_lemak" />
+
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_lemak"
+            tools:text="@string/large_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

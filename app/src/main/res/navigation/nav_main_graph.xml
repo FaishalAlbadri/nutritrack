@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.pab.nutritrack.ui.fragment.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/alarm"
+        android:name="com.pab.nutritrack.ui.fragment.alarm.AlarmFragment"
+        android:label="fragment_alarm"
+        tools:layout="@layout/fragment_alarm" />
+    <fragment
+        android:id="@+id/recipe"
+        android:name="com.pab.nutritrack.ui.fragment.recipe.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" />
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.pab.nutritrack.ui.fragment.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>

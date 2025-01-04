@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import com.pab.nutritrack.R
 import com.pab.nutritrack.data.progress.kalori.ProgressKaloriItem
 import com.pab.nutritrack.databinding.FragmentHomeBinding
+import com.pab.nutritrack.ui.aktivitas.ProgressAktivitasActivity
 import com.pab.nutritrack.ui.evaluasi.EvaluasiActivity
 import com.pab.nutritrack.ui.hidrasi.ProgressHidrasiActivity
 import com.pab.nutritrack.ui.rasio.ProgressRasioActivity
@@ -84,7 +85,7 @@ class HomeFragment : Fragment() {
             }
 
             layoutAktivitas.setOnClickListener {
-                startActivity(Intent(requireActivity(), ProgressRasioActivity::class.java))
+                startActivity(Intent(requireActivity(), ProgressAktivitasActivity::class.java))
             }
 
             layoutEvaluasi.setOnClickListener {

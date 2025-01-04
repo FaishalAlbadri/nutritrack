@@ -31,7 +31,7 @@ class ProgressHidrasiActivity : AppCompatActivity() {
     private val dataLiter: ArrayList<Double> =
         mutableListOf(0.1, 0.25, 0.5, 0.75, 1) as ArrayList<Double>
 
-    private var waterVal: Double = 0.0
+    private var waterVal: Double = 0.3
     private var waterValNow: Double = 0.1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +53,7 @@ class ProgressHidrasiActivity : AppCompatActivity() {
                 progressBarWidth = 5f
                 backgroundProgressBarWidth = 7f
                 progressBarColor =
-                    ContextCompat.getColor(this@ProgressHidrasiActivity, R.color.green)
+                    ContextCompat.getColor(this@ProgressHidrasiActivity, R.color.primary)
             }
 
             rvWater.apply {
@@ -93,6 +93,23 @@ class ProgressHidrasiActivity : AppCompatActivity() {
                     progressBarColor =
                         ContextCompat.getColor(this@ProgressHidrasiActivity, R.color.green)
                 }
+            }
+
+            btnReset.setOnClickListener {
+                waterVal = 0.0
+                txtKaloriVal.text = "${waterVal} L"
+                cpHidrasi.apply {
+                    progressMax = 2f
+                    setProgressWithAnimation(waterVal.toFloat(), 1000)
+                    progressBarWidth = 5f
+                    backgroundProgressBarWidth = 7f
+                    progressBarColor =
+                        ContextCompat.getColor(this@ProgressHidrasiActivity, R.color.green)
+                }
+            }
+
+            btnFinish.setOnClickListener {
+                onBackPressedCallback.handleOnBackPressed()
             }
 
 

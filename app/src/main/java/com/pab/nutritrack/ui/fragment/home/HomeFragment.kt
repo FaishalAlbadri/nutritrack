@@ -15,6 +15,7 @@ import com.pab.nutritrack.R
 import com.pab.nutritrack.data.progress.kalori.ProgressKaloriItem
 import com.pab.nutritrack.databinding.FragmentHomeBinding
 import com.pab.nutritrack.ui.evaluasi.EvaluasiActivity
+import com.pab.nutritrack.ui.hidrasi.ProgressHidrasiActivity
 import com.pab.nutritrack.ui.rasio.ProgressRasioActivity
 import com.pab.nutritrack.utils.viewmodel.ViewModelFactory
 import java.text.SimpleDateFormat
@@ -79,7 +80,7 @@ class HomeFragment : Fragment() {
             }
 
             layoutHidrasi.setOnClickListener {
-                startActivity(Intent(requireActivity(), ProgressRasioActivity::class.java))
+                startActivity(Intent(requireActivity(), ProgressHidrasiActivity::class.java))
             }
 
             layoutAktivitas.setOnClickListener {
